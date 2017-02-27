@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace Model.Base
 {
-    public abstract class BaseModel : INotifyPropertyChanged, IDataErrorInfo
+    public abstract class BaseModel : INotifyPropertyChanged, IDataErrorInfo, ICloneable
     {
         List<string> errorFieldList = new List<string>();
         protected List<string> errorsStorage;
@@ -124,5 +124,9 @@ namespace Model.Base
         public event PropertyChangedEventHandler PropertyChanged;
 
         public event EventHandler SaveEvent;
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
     }
 }

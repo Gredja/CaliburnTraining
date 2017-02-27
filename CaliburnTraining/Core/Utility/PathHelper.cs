@@ -8,7 +8,7 @@ namespace Core.Utility
         static string rootPath;
         static PathHelper()
         {
-            rootPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            rootPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
         }
 
         public static string MakeAbsPath(string relPath)

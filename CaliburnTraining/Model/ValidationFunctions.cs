@@ -23,7 +23,7 @@ namespace Model
         {
             string resultMessage = null;
 
-            if (dateField.Date < DateTime.Now.Date)
+            if (dateField.Date > DateTime.Now.Date)
             {
                 resultMessage = DateBirthError;
             }

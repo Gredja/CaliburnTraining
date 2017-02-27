@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 using Model.Base;
 using Core.Utility;
 
 namespace Model
 {
+    [DataContract]
     public class UserModel :  BaseModel
     {
         string firstName;
@@ -15,12 +14,13 @@ namespace Model
         DateTime birthDate = new DateTime(DateTime.Now.Year - 18, DateTime.Now.Month, DateTime.Now.Day);
         string photoPath;
 
+        [DataMember]
         public string FirstName
         {
             get { return firstName; }
             set
             {
-                if (Equals(value, firstName) == false)
+                if (!Equals(value, firstName))
                 {
                     firstName = value;
                     OnPropertyChanged(x => this.FirstName);
@@ -28,12 +28,13 @@ namespace Model
             }
         }
 
+        [DataMember]
         public string SecondName
         {
             get { return secondName; }
             set
             {
-                if (Equals(value, secondName) == false)
+                if (!Equals(value, secondName))
                 {
                     secondName = value;
                     OnPropertyChanged(x => this.SecondName);
@@ -43,12 +44,13 @@ namespace Model
 
         public string FullName => $"{FirstName} {this.SecondName}";
 
+        [DataMember]
         public DateTime BirthDate
         {
             get { return birthDate; }
             set
             {
-                if (Equals(value, birthDate) == false)
+                if (!Equals(value, birthDate))
                 {
                     birthDate = value;
                     OnPropertyChanged(x => this.BirthDate);
@@ -56,12 +58,13 @@ namespace Model
             }
         }
 
+        [DataMember]
         public string PhotoPath
         {
             get { return photoPath; }
             set
             {
-                if (Equals(value, photoPath))
+                if (!Equals(value, photoPath))
                 {
                     photoPath = value;
                     OnPropertyChanged(x => this.PhotoPath);
@@ -101,8 +104,7 @@ namespace Model
             {
                 MembersOf<UserModel>.GetName(x => x.FirstName),
                 MembersOf<UserModel>.GetName(x => x.SecondName),
-                MembersOf<UserModel>.GetName(x => x.BirthDate),
-
+                MembersOf<UserModel>.GetName(x => x.BirthDate)
             };
         }
     }
