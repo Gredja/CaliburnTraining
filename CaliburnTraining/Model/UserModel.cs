@@ -41,6 +41,7 @@ namespace Model
             }
         }
 
+        public string FullName => $"{FirstName} {this.SecondName}";
 
         public DateTime BirthDate
         {
