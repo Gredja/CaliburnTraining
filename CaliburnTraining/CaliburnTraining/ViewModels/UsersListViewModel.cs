@@ -36,7 +36,7 @@ namespace CaliburnTraining.ViewModels
             Items.CollectionChanged += Items_CollectionChanged;
         }
 
-        private async void Items_CollectionChanged(object sender,
+        void Items_CollectionChanged(object sender,
             System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             dataManager.SaveModel(Items.ToList());
@@ -68,6 +68,8 @@ namespace CaliburnTraining.ViewModels
                 {
                     selectedUser = value;
                     NotifyOfPropertyChange(() => SelectedUser);
+                    NotifyOfPropertyChange(() => CanEditUser);
+                    NotifyOfPropertyChange(() => CanDeleteUser);
                 }
             }
         }
@@ -82,6 +84,8 @@ namespace CaliburnTraining.ViewModels
             }
         }
 
+        public bool CanEditUser => this.SelectedUser != null;
+        public bool CanDeleteUser => this.SelectedUser != null;
 
         #endregion
 

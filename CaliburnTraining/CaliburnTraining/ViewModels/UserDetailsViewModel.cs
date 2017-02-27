@@ -57,7 +57,7 @@ namespace CaliburnTraining.ViewModels
 
         public void BrowseFile()
         {
-            ofd = new OpenFileDialog { Filter = "BMP | *.bmp | JPG | *.jpg; *.jpeg | PNG | *.png ", Title = "Photos" };
+            ofd = new OpenFileDialog { Filter = "*.jpg, *.jpeg, *.png | *.jpg; *.jpeg; *.png"};
 
             if (ofd.ShowDialog() == true)
             {

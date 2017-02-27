@@ -42,9 +42,9 @@
 
         <Button Grid.Row="1" Grid.Column="1" Content="{x:Static p:Resources.addButton}"  Height="20" Margin="5, 0" cal:Message.Attach="[Event Click] = [Action AddUser]"/>
 
-        <Button Grid.Row="2" Grid.Column="1" Content="{x:Static p:Resources.editButton}"  Height="20" Margin="5, 0" cal:Message.Attach="[Event Click] = [Action EditUser]"/>
+        <Button Grid.Row="2" Grid.Column="1" x:Name="EditUser"  Content="{x:Static p:Resources.editButton}"  Height="20" Margin="5, 0" cal:Message.Attach="[Event Click] = [Action EditUser]"/>
 
-        <Button Grid.Row="3" Grid.Column="1" Content="{x:Static p:Resources.removeButton}"  Height="20" Margin="5, 0" cal:Message.Attach="[Event Click] = [Action DeleteUser]"/>
+        <Button Grid.Row="3" Grid.Column="1" x:Name="DeleteUser" Content="{x:Static p:Resources.removeButton}"  Height="20" Margin="5, 0" cal:Message.Attach="[Event Click] = [Action DeleteUser]"/>
 
     </Grid>
 </UserControl>
