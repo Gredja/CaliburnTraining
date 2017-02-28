@@ -40,8 +40,7 @@ namespace CaliburnTraining.Services
             if (screenStack.Count > 1)
             {
                 var viewModel = screenStack.Pop();
-                viewModel = screenStack.Pop();
-                MainViewModel = viewModel;
+                MainViewModel = screenStack.Peek();
                 viewModel.OnActivate();
                 changeViewModel?.Invoke();
             }

@@ -20,7 +20,7 @@ namespace CaliburnTraining
             kernel.Bind<MainWindowViewModel>().ToSelf().InSingletonScope();
             kernel.Bind<INavigator>().To<Navigator>().InSingletonScope();
             kernel.Bind<UsersListViewModel>().ToSelf().InSingletonScope();
-            kernel.Bind<UserDetailsViewModel>().ToSelf().InSingletonScope();
+            kernel.Bind<UserDetailsViewModel>().ToSelf();
             kernel.Bind<DataManager>().ToSelf().InSingletonScope();
         }
 
